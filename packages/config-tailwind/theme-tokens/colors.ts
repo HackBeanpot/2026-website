@@ -1,0 +1,81 @@
+const colors = {
+  transparent: "transparent",
+
+  // roadtrip
+  white: "#FBFBFB",
+  orange: "#F5AE55",
+  tomato: "#EC765A",
+  green: "#84AF67",
+  "light-yellow": "#FFD198",
+  black: "#000000",
+  cream: "#F3E7D7",
+  text: {
+    // roadtrip
+    light: "#FFFFFF",
+    DEFAULT: "#474747",
+    dark: "#474747",
+
+    // carnival
+    marigoldYellow: "#F2E06F",
+    charcoalFog: "#353131",
+  },
+  // roadtrip
+  grapePurple: "#6D5881",
+  beige: "#F3E7D7",
+  granolaLite: "#F2E6D7",
+  sandyBeach: "#FFC780",
+  seaFoam: "#0F786E",
+  darkSeaFoam: "#083D3A",
+  vineGreenLite: "#02877F",
+  leafGreen: "#6B9D8F",
+  darkPurple: "#625074",
+  darkerPurple: "#423350",
+  darkBeige: "#C6B6A9",
+  darkGreen: "#4C7764",
+  lightBrown: "#A9967D",
+  skyBlue: "#98CDDF",
+  sunnyBlue: "#C5DFD2",
+  pavement: "#333333",
+  heather: "#C7C7C7",
+  teal: "#0D685F",
+  eggshell: "#F9EFDA",
+
+  // Carnival
+  charcoalFogLight: "#7A7979",
+  carouselCreamLight: "#FFF5E5",
+  firecrackerRedLight: "#EF4F44",
+  cottonCandyCoralLight: "#FA9685",
+  torchlightOrangeLight: "#F4C974",
+  marigoldYellowLight: "#FDF69D",
+  canopyGreenLight: "#D9E87F",
+  mossGreenLight: "#BAE060",
+  ribbonBlueLight: "#C9ECEF",
+  starlightBlueLight: "#3A6490",
+  mysticPurpleLight: "#B280B6",
+
+  charcoalFog: "#353131",
+  carouselCream: "#F7DFBC",
+  firecrackerRed: "#CC322D",
+  cottonCandyCoral: "#F16F58",
+  torchlightOrange: "#FDA829",
+  marigoldYellow: "#F2E06F",
+  canopyGreen: "#B8C952",
+  mossGreen: "#709941",
+  ribbonBlue: "#AEDFE3",
+  starlightBlue: "#173C62",
+  mysticPurple: "#97609B",
+
+  charcoalFogDark: "#121010",
+  carouselCreamDark: "#C8AF89",
+  firecrackerRedDark: "#961F1C",
+  cottonCandyCoralDark: "#DE543C",
+  torchlightOrangeDark: "#E28913",
+  marigoldYellowDark: "#E4C642",
+  canopyGreenDark: "#869F4C",
+  mossGreenDark: "#4B642E",
+  ribbonBlueDark: "#62A0A6",
+  starlightBlueDark: "#091F36",
+  mysticPurpleDark: "#59225D",
+};
+
+export default colors;
