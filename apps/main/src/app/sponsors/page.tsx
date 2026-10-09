@@ -16,6 +16,18 @@ import WhoopLogo from "@repo/ui/Logos/WhoopLogo.svg";
 import PureButton from "@repo/ui/Logos/PureButton.svg";
 import Link from "next/link";
 
+const SweeneyMerriganLogo = "/sponsor-logos/sweeney-merrigan.svg";
+
+// logo path -> URL opened when that sponsor's ticket is clicked
+const sponsorLinks = new Map<string, string>([
+  [PureButton, "https://mlh.link/MLH-PureButtons-hackathons"],
+  [FlagLogicLogo, "https://appwizzy.com/"],
+  [
+    SweeneyMerriganLogo,
+    "https://www.sweeneymerrigan.com/boston-truck-accident-attorney/",
+  ],
+]);
+
 function makeSponsorRow(
   ticketSizes: number[],
   logos?: string[], // array of logo paths
@@ -28,38 +40,8 @@ function makeSponsorRow(
         gap: `${ticketSizes.length > 1 ? 2 : 5}vw`,
       }}
     >
-      {ticketSizes.map((width, i) =>
-        logos?.[i] === PureButton ? (
-          <Link
-            target="_blank"
-            key={i}
-            href="https://mlh.link/MLH-PureButtons-hackathons"
-            className="relative z-10 block"
-          >
-            <SponsorTicketComp
-              key={i}
-              isSponsorUs={false}
-              logoPath={logos?.[i] ?? ""}
-              ticketWidthVW={width}
-              logoWidth={logoSizes?.[i] ?? 50}
-            />
-          </Link>
-        ) : logos?.[i] === FlagLogicLogo ? (
-          <Link
-            target="_blank"
-            key={i}
-            href="https://appwizzy.com/"
-            className="relative z-10 block"
-          >
-            <SponsorTicketComp
-              key={i}
-              isSponsorUs={false}
-              logoPath={logos?.[i] ?? ""}
-              ticketWidthVW={width}
-              logoWidth={logoSizes?.[i] ?? 50}
-            />
-          </Link>
-        ) : (
+      {ticketSizes.map((width, i) => {
+        const ticket = (
           <SponsorTicketComp
             key={i}
             isSponsorUs={false}
@@ -67,8 +49,22 @@ function makeSponsorRow(
             ticketWidthVW={width}
             logoWidth={logoSizes?.[i] ?? 50}
           />
-        ),
-      )}
+        );
+        const href = logos?.[i] ? sponsorLinks.get(logos[i]) : undefined;
+
+        return href ? (
+          <Link
+            target="_blank"
+            key={i}
+            href={href}
+            className="relative z-10 block"
+          >
+            {ticket}
+          </Link>
+        ) : (
+          ticket
+        );
+      })}
     </div>
   );
 }
@@ -82,7 +78,7 @@ export default function Page(): JSX.Element {
   const logos = [
     [AWSLogo, MavenAGILogo],
     [KlaviyoLogo],
-    [WhoopLogo, RGLogo],
+    [WhoopLogo, RGLogo, SweeneyMerriganLogo],
     [CodeCraftersLogo, FlagLogicLogo, PureButton],
   ];
 
@@ -118,7 +114,7 @@ export default function Page(): JSX.Element {
                 <>
                   {makeSponsorRow([30, 30], logos[0], [250, 250])}
                   {makeSponsorRow([25], logos[1], [175])}
-                  {makeSponsorRow([21, 21], logos[2], [200, 100])}
+                  {makeSponsorRow([21, 21, 21], logos[2], [200, 100, 200])}
                   {makeSponsorRow([17, 17, 17], logos[3], [200, 200, 200])}
                 </>
               )}
@@ -128,7 +124,7 @@ export default function Page(): JSX.Element {
                 <>
                   {makeSponsorRow([30, 30], logos[0], [150, 150])}
                   {makeSponsorRow([25], logos[1], [125])}
-                  {makeSponsorRow([21, 21], logos[2], [115, 115])}
+                  {makeSponsorRow([21, 21, 21], logos[2], [115, 115, 115])}
                   {makeSponsorRow([17, 17, 17], logos[3], [120, 120, 120])}
                 </>
               )}
@@ -138,7 +134,7 @@ export default function Page(): JSX.Element {
                 <>
                   {makeSponsorRow([45, 45], logos[0], [85, 110])}
                   {makeSponsorRow([40], logos[1], [75])}
-                  {makeSponsorRow([30, 30], logos[2], [115, 45])}
+                  {makeSponsorRow([30, 30, 30], logos[2], [115, 45, 115])}
                   {makeSponsorRow([25, 25, 25], logos[3], [85, 85, 85])}
                 </>
               )}
